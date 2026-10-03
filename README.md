@@ -1,27 +1,72 @@
-# ShopFront
+# Angular Product Table Prototype
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.0.
+A minimal historical Angular and Angular Material experiment for rendering an in-memory product list with a paginator.
 
-## Development server
+## Current scope
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- One product-list component
+- Angular Material table and paginator modules
+- Two sample products stored directly in the component
+- A catch-all route that displays the product-list view
+- Starter component test scaffolding
 
-## Code scaffolding
+## Technology
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Angular 16
+- TypeScript 5
+- Angular Material 16
+- RxJS
+- Jasmine and Karma scaffolding
 
-## Build
+## Install and run
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```powershell
+npm install
+npm start
+```
 
-## Running unit tests
+Open `http://localhost:4200` after the development server starts.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Build and test
 
-## Running end-to-end tests
+```powershell
+npm run build
+npm test -- --watch=false --browsers=ChromeHeadless
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+The build is the reliable verification for the current archive. The committed tests are still Angular starter scaffolding and need repair before they can be treated as meaningful coverage.
 
-## Further help
+## Data model
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+The component uses a small local interface:
+
+```ts
+interface Product {
+  name: string;
+  image: string;
+  price: number;
+  discount: boolean;
+}
+```
+
+There is no API, database, authentication, shopping cart, checkout flow, inventory management, payment integration, or deployed backend in this repository.
+
+## Historical limitations
+
+This is an incomplete UI prototype rather than a finished storefront.
+
+- Product data is hardcoded and image values are placeholders.
+- The table template defines only part of the configured columns and needs implementation work before the full row model renders correctly.
+- The paginator is wired to the in-memory data source, but the tiny sample does not exercise pagination.
+- Styling, responsive behavior, accessibility review, error states, loading states, and empty states are incomplete.
+- The product-list test does not import its required Angular Material modules.
+- The app-component starter test expects template content that is no longer present.
+- The dependency graph is historical and should be upgraded before deployment.
+
+## Status
+
+Archived educational prototype. It is retained as evidence of early Angular Material experimentation and should remain unfeatured until the UI and tests are completed.
+
+## License
+
+No open-source license has been selected. The source is publicly viewable, but reuse rights are not granted until a license is added.
